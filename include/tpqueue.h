@@ -7,25 +7,25 @@ class TPQueue {
 private:
 T arr[100];
 int first, last;
- 
-public: 
+
+public:
 TPQueue() : first(0), last(0) {}
 void push(T x) {
 int per = last++;
-while ((--per >= first) && (arr[per % size].prior < x.prior)) { 
+while ((--per >= first) && (arr[per % size].prior < x.prior)) {
 arr[(per + 1) % size] = arr[per % size];
 }
 arr[(per + 1) % size] = x;
 }
 T pop() {
-return arr[(first++) % size]; 
-} 
+return arr[(first++) % size];
+}
 }
 };
- 
+
 struct SYM {
   char ch;
-  int prior; 
+  int prior;
 };
 
 #endif  // INCLUDE_TPQUEUEH
